@@ -208,8 +208,8 @@ class FBIntelScan:
                 self.root.after(0, lambda: self.status_label.configure(
                     text=f"✅ Scan complete! Found {final_count} matches"))
             
-        except Exception as search_error:
-            self.root.after(0, lambda: self.status_label.configure(text=f"❌ Error: {str(search_error)}"))
+        except Exception as e:
+            self.root.after(0, lambda: self.status_label.configure(text=f"❌ Error: {str(e)}"))
         finally:
             self.is_scanning = False
             self.root.after(0, lambda: self.search_button.configure(state="normal"))
